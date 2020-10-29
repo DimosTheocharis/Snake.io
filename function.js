@@ -20,7 +20,7 @@ function main(currentTime) {
         show_Results = true;
         GAME_OVER = false;
         localStorage.setItem('Experience_earned',`${Apples_eaten * 5 + Golden_Apples_eaten *  25}` );
-        localStorage.setItem("Coins", `${SCORE_POINTS + Math.floor(localStorage.getItem('Coins'))}`);
+        localStorage.setItem("Coins", `${Apples_eaten * 1 + Golden_Apples_eaten * 20 + Math.floor(localStorage.getItem('Coins'))}`);
         localStorage.setItem('Total_Experience',`${Math.floor(localStorage.getItem('Total_Experience')) + Apples_eaten * 5 + Golden_Apples_eaten * 25}`);
         localStorage.setItem('Apples_eaten', `${Apples_eaten}`);
         localStorage.setItem('Golden_Apples_eaten',`${Golden_Apples_eaten}`);
@@ -181,7 +181,7 @@ class Apple {
     getNewApplePosition() {
         let newFoodPosition;
         while (newFoodPosition == null || snake.onSnake(newFoodPosition) || obstacles.positions.some(position => {
-            equalPositions(newFoodPosition, position);
+            return equalPositions(newFoodPosition, position);
         })) {
             newFoodPosition = getRandomGridPosition();
         }
@@ -190,7 +190,6 @@ class Apple {
 
     goldenApple() {
         let number = Math.floor(Math.random() * 20);
-        console.log(number);
         if (number === 7) {
             this.value = 'golden';
             this.color = 'gold';
@@ -208,11 +207,11 @@ class Apple {
                 Apples_eaten += 1;
                 SCORE_POINTS += LEVEL;
             } else if (this.value === 'golden'){
-                console.log('yep');
                 Golden_Apples_eaten += 1;
                 SCORE_POINTS += LEVEL * 5;
             }
             this.goldenApple();
+            console.log(this.coordinates);
         }
     }
 }
