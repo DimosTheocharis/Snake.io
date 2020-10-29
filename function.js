@@ -3,7 +3,7 @@ let game_board = document.getElementById('game-board');
 let body = document.getElementsByTagName('body')[0];
 let score = document.getElementById('score');
 let lastRenderTime = 0;
-const snakeSpeed = 6;
+const snakeSpeed = 7;
 let currentDirection = {x:-1, y:0};
 let lastDirection = {x:0, y:0};
 let GRID_SIZE = 21;
@@ -189,7 +189,7 @@ class Apple {
     }
 
     goldenApple() {
-        let number = Math.floor(Math.random() * 10);
+        let number = Math.floor(Math.random() * 20);
         console.log(number);
         if (number === 7) {
             this.value = 'golden';
