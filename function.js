@@ -37,7 +37,7 @@ function main(currentTime) {
         draw(); 
     } else {
         body.innerHTML = "";
-        window.location = "https://dimostheocharis.github.io/Snake.io/shop.html";
+        window.location = "https://dimostheocharis.github.io/Snake.io/results.html";
     }
 }
 
