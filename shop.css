@@ -133,3 +133,13 @@ body {
 
 .Shop-container__items__item__buy:hover {cursor:pointer; background-color: rgb(25,25,25);}
 
+/*@media screen and (max-width: 600px) {
+    .back-profile-coins__back-profile__profile {
+        grid-template-areas: "experience_bar"
+                             "model"
+                             "experience";
+    }
+    .bpc__experience-bar {grid-area: experience_bar;}
+    .bpc__model__model {grid-area: model;}
+    .bpc__model-experience__experience {grid-area: experience;}
+} */

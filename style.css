@@ -96,6 +96,7 @@ body {
                              "nothing4 DOWN nothing5";
     }
     .buttons__button {box-sizing:border-box;padding-top:5px;padding-bottom:5px;text-align:center;background-color:rgb(100,100,100);}
+    .buttons__button:hover {background-color:rgb(75,75,75);cursor:pointer;}
 
     #up {grid-area: UP;}
     #down {grid-area: DOWN;}

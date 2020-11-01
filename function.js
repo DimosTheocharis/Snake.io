@@ -2,6 +2,7 @@
 let game_board = document.getElementById('game-board');
 let body = document.getElementsByTagName('body')[0];
 let score = document.getElementById('score');
+var buttons_button = document.getElementsByClassName('buttons__button');
 let lastRenderTime = 0;
 const snakeSpeed = 7;
 let currentDirection = {x:-1, y:0};
@@ -33,8 +34,8 @@ function main(currentTime) {
     lastRenderTime = currentTime;
     if (show_Results === false) { 
         score.innerHTML = `Score: ${SCORE_POINTS}`;
-        draw(); 
         update();
+        draw(); 
     } else {
         body.innerHTML = "";
         window.location = "https://dimostheocharis.github.io/Snake.io/results.html";
@@ -78,6 +79,28 @@ window.addEventListener('keydown', e => {
             break;
     }
 })
+
+for (let i=0; i< buttons_button.length; i++ ) {
+    buttons_button[i].addEventListener('click', ()=> {
+        if (buttons_button[i].innerHTML === 'Up') {
+            if (lastDirection.y === 0) {
+                currentDirection = {x:0, y:-1};
+            }
+        } else if (buttons_button[i].innerHTML === 'Down') {
+            if (lastDirection.y === 0) {
+                currentDirection = {x:0, y: 1};
+            }
+        } else if (buttons_button[i].innerHTML === 'Right') {
+            if (lastDirection.x === 0) {
+                currentDirection = {x:1, y:0};
+            }
+        } else if (buttons_button[i].innerHTML === 'Left') {
+            if (lastDirection.x === 0) {
+                currentDirection = {x:-1, y:0};
+            }
+        }
+    })
+}
 
 function returnDirection() {
     lastDirection =  currentDirection;
@@ -272,6 +295,3 @@ function Show_Results() {
     body.appendChild(results_window);
 
 }
-
-
-console.log(document.getElementsByClassName('buttons__button').length);
