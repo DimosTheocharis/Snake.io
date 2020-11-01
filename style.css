@@ -69,8 +69,36 @@ body {
 
 .results-window__buttons div:hover{background-color:rgb(75,75,75);}
 
+.buttons {display:none;}
+
 @media screen and (max-width: 800px) {
     #game-board {
         height: 85vmin;
     }
+    body {flex-direction:column;}
+}
+
+@media screen and (max-width: 600px) {
+    #game-board {
+        box-sizing: border-box;
+        width:80vw;
+        margin:0;
+    }
+    #score {position:absolute;top:0;right:0;}
+    .buttons {
+        margin-top: 3px;
+        width: 50%;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "nothing1 UP nothing2"
+                             "LEFT nothing3 RIGHT"
+                             "nothing4 DOWN nothing5";
+    }
+    .buttons__button {box-sizing:border-box;padding-top:5px;padding-bottom:5px;text-align:center;background-color:rgb(100,100,100);}
+
+    #up {grid-area: UP;}
+    #down {grid-area: DOWN;}
+    #left {grid-area: LEFT;}
+    #right {grid-area: RIGHT;}
 }

@@ -33,8 +33,8 @@ function main(currentTime) {
     lastRenderTime = currentTime;
     if (show_Results === false) { 
         score.innerHTML = `Score: ${SCORE_POINTS}`;
-        update();
         draw(); 
+        update();
     } else {
         body.innerHTML = "";
         window.location = "https://dimostheocharis.github.io/Snake.io/results.html";
@@ -165,7 +165,7 @@ class Snake {
 class Apple {
     constructor(color) {
         this.color = color;
-        this.coordinates = {x: 5, y: 5};
+        this.coordinates = getRandomGridPosition();
         this.value = 'normal';
     }
 
@@ -222,10 +222,10 @@ class Obstacles{
         this.positions = [];
     }
 
-    getRandomObstaclePositions(player_coordination) {
+    getRandomObstaclePositions(player_coordination,apple_coordinatation) {
         for (let x=0;x<this.number;x++) {
             let new_obstacle_position = getRandomGridPosition();
-            while (equalPositions(player_coordination, new_obstacle_position)) {
+            while (equalPositions(player_coordination, new_obstacle_position) || equalPositions(apple_coordinatation, new_obstacle_position)) {
                 new_obstacle_position = getRandomGridPosition();
             }
             this.positions.push(new_obstacle_position);
@@ -254,7 +254,7 @@ class Obstacles{
 const snake = new Snake('green', 'green');
 const apple = new Apple('red');
 const obstacles = new Obstacles(4 + LEVEL);
-obstacles.getRandomObstaclePositions(snake.body[0]);
+obstacles.getRandomObstaclePositions(snake.body[0],apple.coordinates);
 
 /* allazw to xrwma tou snake an exei epilexthei diaforetiko xrwma apo prasino */
 if (localStorage.getItem('Snake Head Color') !== null) {
@@ -272,3 +272,6 @@ function Show_Results() {
     body.appendChild(results_window);
 
 }
+
+
+console.log(document.getElementsByClassName('buttons__button').length);
