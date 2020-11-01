@@ -87,7 +87,9 @@ body {
     #score {position:absolute;top:0;right:0;}
     .buttons {
         margin-top: 40px;
+        margin-bottom: 10px;
         width: 80%;
+        height: 40%;
         display:grid;
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
@@ -95,7 +97,7 @@ body {
                              "LEFT nothing3 RIGHT"
                              "nothing4 DOWN nothing5";
     }
-    .buttons__button {box-sizing:border-box;padding-top:5px;padding-bottom:5px;text-align:center;background-color:rgb(100,100,100);border-radius:5px;}
+    .buttons__button {box-sizing:border-box;padding-top:16px;padding-bottom:14px;text-align:center;background-color:rgb(100,100,100);border-radius:5px;}
     .buttons__button:hover {background-color:rgb(75,75,75);cursor:pointer;}
 
     #up {grid-area: UP;}
