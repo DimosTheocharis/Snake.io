@@ -43,7 +43,7 @@ body {
 #back-button:hover {cursor:pointer;background-color:rgb(35,35,35);}
 
 .results-window {background-color:rgb(172, 163, 163);width:45%;height:50%;display:grid;grid-template-columns:1fr;justify-content:center;
-                 align-items:start;
+                 align-items:start;min-width:225px;
                  grid-template-areas: "results"
                                       "experience-bar"
                                       "information";
