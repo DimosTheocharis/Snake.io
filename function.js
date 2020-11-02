@@ -230,6 +230,7 @@ class Apple {
                 Apples_eaten += 1;
                 SCORE_POINTS += LEVEL;
             } else if (this.value === 'golden'){
+                snake.expand();
                 Golden_Apples_eaten += 1;
                 SCORE_POINTS += LEVEL * 5;
             }
