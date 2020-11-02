@@ -76,18 +76,22 @@ var count = 0;
 // ---------------------------------------------------FUNCTION----------------------------------------------//
 
 function main(currentTime) {
-    window.requestAnimationFrame(main);
+    var value = window.requestAnimationFrame(main);
     let secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
     if (secondsSinceLastRender < 1 / 150 * 7) return;
     if (count < 100) {
         count += 1;
     } else {
-        window.location = 'https://dimostheocharis.github.io/Snake.io/MainMenu.html';
+        bar.innerHTML = 'Loading...';
+        window.cancelAnimationFrame(value);
+        setTimeout(()=> {
+            window.location = 'https://dimostheocharis.github.io/Snake.io/MainMenu.html';
+        },2000);
     }
-    count += 1;
-    count -= 1;
     bar.style.width = `${count}%`;
-    bar.innerHTML = `${count}%`;
+    if (bar.innerHTML !== 'Loading...') {
+        bar.innerHTML = `${count}%`;
+    }
     lastRenderTime = currentTime;
 }
 
